@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    transition-duration: 0.5s;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+table thead {
+    position: sticky;
+    background-color: yellow;
+    top: 0;
+    z-index: 1;
+}
+
+table thead th {
+    border: 1px solid black;
+    font-size: 1.25em;
+    padding: 4px;
+}
+
+table tbody td {
+    border: 1px solid black;
+}
+
+table tbody td.route,
+table tbody td.dest,
+table tbody td.seq {
+    background-color: rgba(255,255,0,0.1);
+}
+
+table tbody td.dest,
+table tbody td.seq {
+    text-align: center;
+    font-size: 2em;
+}
+
+table tbody td.route {
+    text-align: center;
+    font-family: 'P22 Johnston Underground', 'Gill Sans', sans-serif;
+    font-size: 3em;
+    font-variant: small-caps;
+}
+
+/* container of each version */
+table tbody td.files>div {
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 4px;
+    margin: 8px;
+}
+
+/* version marker */
+table tbody td.files>div>h1 {
+    text-align: center;
+    line-height: 0;
+}
+
+/* dim older versions */
+table tbody td.files>div:not(:first-child) {
+    opacity: 0.5;
+}
+
+/* container of each image div */
+table tbody td.files>div>div {
+    display: block;
+    background-color: rgba(255,255,0,0.2);
+    border-radius: 4px;
+    margin: 8px;
+}
+
+/* container of each image component */
+table tbody td.files>div>div>span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* image page marker */
+table tbody td.files>div>div>span:first-child {
+    text-align: center;
+    line-height: 0.5;
+    padding: 4px;
+}
+
+/* image */
+table tbody td.files img {
+    height: 128px;
+    padding: 4px;
+}
+
+table tr:nth-child(even)>td:nth-last-child(1) {
+    background-color: #eee;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #111;
+    }
+
+    table thead {
+        background-color: blue;
+        color: white;
+    }
+
+    table tbody {
+        color: white;
+    }
+
+    table tbody td {
+        border-color: lightgrey;
+    }
+    
+    table tbody td.route,
+    table tbody td.dest,
+    table tbody td.seq {
+        background-color: rgba(0,127,255,0.25);
+    }
+
+    table tr:nth-child(even)>td:nth-last-child(1) {
+        background-color: #222;
+    }
+
+    table tbody td.files>div>div {
+        background-color: rgba(255,255,255,0.2);
+    }
+}
