@@ -1,11 +1,11 @@
 # Citybus (Bravo Bus) Hanover Display bitmaps
 
 Normal Routes
-- [1-99X](index_1-99x.html)      
+- [1-99X](index_1-99x.html)
 - [101-191R](index_101-191r.html)
-- [220-260](index_220-260.html)  
-- [302-389](index_302-389.html)  
-- [511-595](index_511-595.html)  
+- [220-260](index_220-260.html)
+- [302-389](index_302-389.html)
+- [511-595](index_511-595.html)
 - [601-694S](index_601-694s.html)
 - [701-798X](index_701-798x.html)
 - [904-989](index_904-989.html)
