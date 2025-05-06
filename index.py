@@ -272,7 +272,7 @@ for group, displaysGroup in displays.items():
                         files += "<div>"
                         files += f"<h1>Version {versionHead}</h1>"
                         for fileIndex in range(count):
-                            filename = f"{route}_{dest}_{seq}{version}{fileIndex}.bmp"
+                            filename = f"{route.upper()}_{dest}_{seq}{version}{fileIndex}.bmp"
                             files += f"<div><span><p>Page</p><h2>{fileIndex+1}</h2></span>"
                             files += f"<span><img src=\"{BITMAP_FOLDER}\\{filename}\"></span></div>"
                         files += "</div>"
