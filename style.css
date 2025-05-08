@@ -1,7 +1,9 @@
-body {
+* {
     font-family: Arial, sans-serif;
     font-size: 16px;
     transition-duration: 0.5s;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 table {
@@ -24,6 +26,11 @@ table thead th {
 
 table tbody td {
     border: 1px solid black;
+}
+
+table tbody tr.hide {
+    display: none;
+    visibility: collapse;
 }
 
 table tbody td.route,
@@ -125,5 +132,17 @@ table tr:nth-child(even)>td:nth-last-child(1) {
 
     table tbody td.files>div>div {
         background-color: rgba(255,255,255,0.2);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    table td.route,
+    table td.dest,
+    table td.seq {
+        font-size: 0.8em;
+    }
+    
+    table tbody td.files img {
+        height: 96px;
     }
 }

@@ -242,7 +242,7 @@ for group, displaysGroup in displays.items():
             "\t<table>",
             "\t\t<thead>",
             "\t\t\t<tr>",
-            "\t\t\t\t<th>路綫</th>",
+            "\t\t\t\t<th>路綫<br><input type=\"text\" id=\"routeFil\" onkeyup=\"filter()\" size=\"4\"></th>",
             "\t\t\t\t<th>方向</th>",
             "\t\t\t\t<th>次序</th>",
             "\t\t\t\t<th>顯示</th>",
@@ -331,8 +331,8 @@ for group, displaysGroup in displays.items():
         html.write("\n".join([
             "\t\t</tbody>",
             "\t</table>",
+            "\t<script src=\"index_filter.js\"></script>",
             "</body>"
         ]))
 
 print("\n".join(markdown))
-
