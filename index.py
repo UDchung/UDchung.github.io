@@ -154,13 +154,13 @@ group = {key: [] for key in [
 ]}
 
 # iterate routes
-#   step 1: group by start index of numeric character (0 / 1 / >=2 or none)
+#   step 1: group by start index of numeric character (0 / >=1 / none)
 keys = list(displays.keys())
 for routeNum in keys:
     start, num = getNumeric(routeNum)
     if start == 0:
         group["numeric"].append((num, routeNum))
-    elif start == 1:
+    elif start >= 1:
         group["alphabet"].append((num, routeNum))
     else:
         group["Others"].append((num, routeNum))
@@ -200,10 +200,25 @@ for group, rtnumList in keylist.items():
         sortedDisplays[group][rtnum] = displays[rtnum]
 
 displays = sortedDisplays.copy()
-displays
 sortedDisplays.clear()
 
 timestamp = str(datetime.datetime.now().isoformat(sep=" ", timespec="seconds"))
+
+# group misc displays by splitting 1st instance of "_"
+miscGrouped = {}
+for display in miscDisplays:
+    splitted = str(display).split("_", 1)
+    # if contains "_", write to dict
+    if len(splitted) > 1:
+        group, name = splitted
+        # create list if key not exist
+        if miscGrouped.get(group) is None:
+            miscGrouped[group] = []
+        miscGrouped[group].append(name)
+
+    # else, append to invalid
+    else:
+        invalid.append(splitted)
 
 # dump to json
 with open("indexDump.json", "w", encoding="utf-8") as dumpFile:
@@ -215,7 +230,6 @@ with open("indexDump.json", "w", encoding="utf-8") as dumpFile:
         "invalid": invalid
     }
     json.dump(dump, dumpFile, ensure_ascii=False, indent="\t")
-
 
 # iterate for each group
 markdown = []
@@ -334,5 +348,69 @@ for group, displaysGroup in displays.items():
             "\t<script src=\"index_filter.js\"></script>",
             "</body>"
         ]))
+
+# ungrouped displays
+htmlFilename = "index_ungrouped.html"
+title = f"Ungrouped ({timestamp})"
+
+with open(htmlFilename, "w", encoding="utf-8") as html:
+    html.write("\n".join([
+        "<!DOCTYPE html>",
+        "<html lang=\"en\">",
+        "",
+        "<head>",
+        "\t<meta charset=\"UTF-8\">",
+        "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+        "\t<link rel=\"stylesheet\" href=\"style.css\">",
+        f"\t<title>{title}</title>",
+        "</head>",
+        "",
+        "<body>",
+        "\t<table>",
+        "\t\t<thead>",
+        "\t\t\t<tr>",
+        "\t\t\t\t<th>路綫</th>",
+        "\t\t\t\t<th>顯示</th>",
+        "\t\t\t</tr>",
+        "\t\t</thead>",
+        "\t\t<tbody>",
+    ]))
+
+    for group, displayList in miscGrouped.items():
+        files = ""
+
+        groupName = []
+        lastCharLower = False
+        for char in group:
+            if lastCharLower and char.isupper():
+                groupName.append("<br>" + char)
+            else:
+                groupName.append(char)
+
+            lastCharLower = not char.isupper()
+
+        groupName = "".join(groupName)
+
+        files += f"\n\t\t\t<tr><td class=\"route\">{groupName}</td>"
+        files += "<td class=\"files\"><div>"
+
+        for display in displayList:
+            noExtension = os.path.splitext(display)[0]
+            filename = f"{group}_{display}"
+            files += f"<div><span><h2>{noExtension}</h2></span>"
+            files += f"<span><img src=\"{BITMAP_FOLDER}\\{filename}\"></span></div>"
+
+        files += "</div></td>"
+        files += "</tr>"
+
+        html.write(files)
+
+    html.write("\n")
+    html.write("\n".join([
+        "\t\t</tbody>",
+        "\t</table>",
+        # "\t<script src=\"index_filter.js\"></script>",
+        "</body>"
+    ]))
 
 print("\n".join(markdown))
