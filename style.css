@@ -63,7 +63,7 @@ table tbody td.files>div {
 /* version marker */
 table tbody td.files>div>h1 {
     text-align: center;
-    line-height: 0;
+    line-height: 1;
 }
 
 /* dim older versions */
@@ -88,7 +88,7 @@ table tbody td.files>div>div>span {
 /* image page marker */
 table tbody td.files>div>div>span:first-child {
     text-align: center;
-    line-height: 0.5;
+    line-height: 1.5;
     padding: 4px;
 }
 
