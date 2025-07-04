@@ -14,7 +14,7 @@ Normal Routes
 - [CHI11-CHI11](index_CHI11-CHI11.html)
 - [E11-E29C](index_E11-E29c.html)
 - [H1-H4](index_H1-H4.html)
-- [N106-NA11](index_N106-NA11.html)
+- [N106-NP1](index_N106-NP1.html)
 - [R11-R930](index_R11-R930.html)
 - [S1-SP9](index_S1-SP9.html)
 - [X1-X970](index_X1-X970.html)
