@@ -398,7 +398,7 @@ with open(htmlFilename, "w", encoding="utf-8") as html:
             noExtension = os.path.splitext(display)[0]
             filename = f"{group}_{display}"
             files += f"<div><span><h2>{noExtension}</h2></span>"
-            files += f"<span><img src=\"{BITMAP_FOLDER}\\{filename}\"></span></div>"
+            files += f"<span><img loading=\"lazy\" src=\"{BITMAP_FOLDER}\\{filename}\"></span></div>"
 
         files += "</div></td>"
         files += "</tr>"
