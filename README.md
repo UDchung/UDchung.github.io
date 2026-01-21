@@ -3,7 +3,7 @@
 Normal Routes
 - [1-99X](index_1-99x.html)
 - [101-191R](index_101-191r.html)
-- [220-260](index_220-260.html)
+- [220-260X](index_220-260x.html)
 - [302-389](index_302-389.html)
 - [511-595](index_511-595.html)
 - [601-694S](index_601-694s.html)
@@ -15,7 +15,7 @@ Normal Routes
 - [E11-E29C](index_E11-E29c.html)
 - [H1-H4](index_H1-H4.html)
 - [N106-NP5](index_N106-NP5.html)
-- [R11-R930](index_R11-R930.html)
+- [R11-R969](index_R11-R969.html)
 - [S1-SP9](index_S1-SP9.html)
 - [X1-X970](index_X1-X970.html)
 - [OTHERS](index_Others.html)
