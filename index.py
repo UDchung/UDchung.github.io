@@ -202,7 +202,7 @@ for group, rtnumList in keylist.items():
 displays = sortedDisplays.copy()
 sortedDisplays.clear()
 
-timestamp = str(datetime.datetime.now().isoformat(sep=" ", timespec="seconds"))
+timestamp = str(datetime.datetime.now().isoformat(sep=" ", timespec="minutes"))
 
 # group misc displays by splitting 1st instance of "_"
 miscGrouped = {}
