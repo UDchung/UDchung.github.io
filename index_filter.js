@@ -18,7 +18,7 @@ function filter() {
             // get rowspan if exist, and hide/unhide rows
             if (firstCell.classList.contains("route")) {
                 hide = !firstCell.innerHTML.toUpperCase().includes(rt.value.toUpperCase());
-                console.log(hide)
+                // console.log(hide)
 
                 rowspan = firstCell.getAttribute("rowspan");
                 if (rowspan) {
@@ -32,10 +32,10 @@ function filter() {
             if (hideRow >= 1) {
                 if (hide) {
                     row.classList.add(hideClass);
-                    console.log("hide");
+                    // console.log("hide");
                 } else {
                     row.classList.remove(hideClass);
-                    console.log("unhide");
+                    // console.log("unhide");
                 }
                 hideRow--;
             }
@@ -44,7 +44,7 @@ function filter() {
         // unhide all rows
         for (const row of rows) {
             row.classList.remove(hideClass);
-            console.log("unhide");
+            // console.log("unhide");
         }
     }
 }
